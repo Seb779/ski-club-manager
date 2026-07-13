@@ -80,10 +80,10 @@
             <div class="flex gap-2">
               <div v-for="manche in course.nb_manches" :key="manche" class="text-center">
                 <p class="text-xs text-gray-400">M{{ manche }}</p>
-                <template v-if="getChrono(p, manche) as c">
-                  <span v-if="c.disqualifie" class="text-xs font-mono text-red-600">DQ</span>
+                <template v-if="getChrono(p, manche)">
+                  <span v-if="getChrono(p, manche).disqualifie" class="text-xs font-mono text-red-600">DQ</span>
                   <span v-else class="text-sm font-mono font-semibold text-gray-900">
-                    {{ c.temps_formate ?? '—' }}
+                    {{ getChrono(p, manche).temps_formate ?? '—' }}
                   </span>
                 </template>
                 <span v-else class="text-xs text-gray-300">—</span>
