@@ -35,8 +35,12 @@ echo "======================================"
 echo ""
 echo -e "${GREEN}→ Installation PHP 8.3...${NC}"
 apt update -q
-apt install -y software-properties-common
-add-apt-repository ppa:ondrej/php -y
+apt install -y curl gnupg2 ca-certificates lsb-release
+
+# Repo sury.org (supporte Ubuntu Resolute / 26.04)
+curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" \
+    > /etc/apt/sources.list.d/php.list
 apt update -q
 apt install -y \
     php8.3-fpm php8.3-cli php8.3-mysql php8.3-mbstring php8.3-xml \
