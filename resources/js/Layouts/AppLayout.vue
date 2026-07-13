@@ -12,12 +12,12 @@
         </Link>
 
         <div class="flex items-center gap-1 ml-4">
-          <NavLink href="/membres" :active="route().current('membres.*')">Membres</NavLink>
-          <NavLink href="/cotisations" :active="route().current('cotisations.*')">Cotisations</NavLink>
-          <NavLink href="/groupes" :active="route().current('groupes.*')">Groupes</NavLink>
-          <NavLink href="/courses" :active="route().current('courses.*')">Courses</NavLink>
-          <NavLink href="/courriers" :active="route().current('courriers.*')">Courriers</NavLink>
-          <NavLink href="/saisons" :active="route().current('saisons.*') || route().current('categories.*')">Paramètres</NavLink>
+          <NavLink href="/membres" :active="urlStartsWith('/membres')">Membres</NavLink>
+          <NavLink href="/cotisations" :active="urlStartsWith('/cotisations')">Cotisations</NavLink>
+          <NavLink href="/groupes" :active="urlStartsWith('/groupes')">Groupes</NavLink>
+          <NavLink href="/courses" :active="urlStartsWith('/courses')">Courses</NavLink>
+          <NavLink href="/courriers" :active="urlStartsWith('/courriers')">Courriers</NavLink>
+          <NavLink href="/saisons" :active="urlStartsWith('/saisons') || urlStartsWith('/categories')">Paramètres</NavLink>
         </div>
 
         <div class="ml-auto flex items-center gap-3">
@@ -58,4 +58,5 @@ import NavLink from '@/Components/UI/NavLink.vue'
 
 const page   = usePage()
 const saisonActive = computed(() => page.props.saisonActive)
+const urlStartsWith = (prefix) => page.url.startsWith(prefix)
 </script>
