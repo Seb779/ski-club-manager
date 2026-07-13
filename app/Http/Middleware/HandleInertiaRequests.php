@@ -30,7 +30,7 @@ class HandleInertiaRequests extends Middleware
                 'success' => fn () => $request->session()->get('success'),
                 'error'   => fn () => $request->session()->get('error'),
             ],
-            'saisonActive' => fn () => \App\Models\Saison::where('statut', 'active')->first(),
+            'saisonActive' => fn () => \App\Models\Saison::where('active', 1)->first(),
         ]);
     }
 }
