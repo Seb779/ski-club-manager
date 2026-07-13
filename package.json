@@ -17,6 +17,7 @@
     "dependencies": {
         "@inertiajs/vue3": "^2.0",
         "@vueuse/core": "^10.9",
+        "axios": "^1.7",
         "vue": "^3.4"
     }
 }
